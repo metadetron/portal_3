@@ -1,0 +1,137 @@
+body {
+  background-color: #F3F3F3 !important;
+}
+footer {
+  background-color: #193c74 !important;
+}
+div.form li {
+  margin: 0px 2px;
+}
+div.form_view li {
+  margin: 0px 20px;
+}
+.navbar .nav > li > a {
+  padding: 0px !important;
+}
+div.navbar-inner div.portlet_container.menu ul.virgo_menu {
+  margin: 5px 0px !important;
+}
+body > .navbar .brand {
+  color: #666666 !important;
+}
+body > .navbar .brand:hover {
+  color: #FFFFFF !important;
+}
+.inputbox.readonly {
+  font-weight: bold;
+}
+input.btn {
+  margin-bottom: 10px;
+}
+footer.footer a, footer.footer table.navbar-link {
+  color: #AAAAAA;
+}
+footer.footer a:active {
+  color: #AAAAAA;
+}
+footer.footer a:visited {
+  color: #AAAAAA;
+}
+footer.footer table.login input.btn {
+  background-color: inherit;
+  background-image: none;
+  border: medium none;
+  box-shadow: none;
+  color: inherit;
+  font-size: inherit;
+  text-shadow: none;
+}
+footer.footer table.login input.btn:hover {
+  text-decoration: underline;
+}
+.nav > li > a:hover {
+  text-decoration: underline !important;
+  background-color: transparent !important;
+}
+footer.footer li {
+  padding: 0px !important;
+}
+footer.footer ul {
+  margin: 1px 20px !important;
+}
+fieldset.create_krs_adres li, fieldset.create_krs_adres label, fieldset.form_krs_adres li, fieldset.form_krs_adres label {
+  display: inline-block;
+}
+input.dropdown {
+  width: 600px;
+}
+div.portlet_container.menu ul.menu li ul.submenu {
+  background-color: #193c74;
+}
+input[type="file"] {
+  height: 27px !important;
+  margin-bottom: 10px;
+}
+table.login tr td {
+  padding-right: 20px;
+}
+table.login select, table.login input {
+  margin-bottom: 0px;
+}
+div.child {
+  margin-top: -10px;
+}
+table.lifecycle_history tr td {
+  padding: 4px 10px;
+}
+.navbar-inner {
+  background-image: none !important;
+  background-color: #193c74 !important;
+}
+.navbar-inverse .nav .active > a, .navbar-inverse .nav .active > a:hover, .navbar-inverse .nav .active > a:focus {
+  background-color: transparent !important;
+}
+div.breadcrumb span.page a.page {
+  color: #193c74;
+}
+.navbar-inverse .brand, .navbar-inverse .nav > li > a {
+  color: #CCCCCC !important;
+}
+/* sealock */
+.table-condensed th, .table-condensed td {
+  padding: 0px !important;
+}
+.btn-mini {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+td.actions div.button_wrapper_delete input.button, td.actions div.button_wrapper_view input.button, td.actions div.button_wrapper_form input.button {
+	background-color: transparent !important;
+	background-image: url('/media/sprites-orange.png') !important;
+	border: none !important;
+	width: 20px;
+	height: 16px;
+	font-size: 0px !important;
+	cursor: pointer;
+	text-indent: -999px !important;
+	display:block !important;
+	line-height: 0 !important;
+        border-radius: 0px;
+}
+
+td.actions div.button_wrapper_delete input.button {
+	background-position: -230px -7px !important;
+}
+
+td.actions div.button_wrapper_form input.button {
+	background-position: -250px -7px !important;
+}
+
+td.actions div.button_wrapper_view input.button {
+	background-position: -274px -7px !important;
+}
+.ui-tabs .ui-tabs-nav li a {
+  float: left;
+  padding: 2px;
+  text-decoration: none;
+}

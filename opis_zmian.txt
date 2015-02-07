@@ -1,0 +1,54 @@
+ potrzebna jest nowa wersja, ze zmianami:
+	- transakcja tylko w akcji, content TYLKO wyswietla dane przygotowane przez controllera. Content w ogole nie ma dostepu do bazy???
+	- settery sa prywatne
+	- dochodzi afterCommit() i onStatusChangeCommit() onStatusChangeTo_XXXCommit(), onStatusChange_XX_YYCommit() dla akcji nie rollbackowalnych, czyli np. wyslanie maila, output do pliku itp
+
+Na razie dywagacje bez virgo:
+
+To ma byc tak, MVC:
+
+M: controller.php dostarcza danych, robi selekty, updaty i zwraca objekt klasy model z danymi do wyswietlenia
+V: content.php wyswietla te dane POLACZENIE Z BAZA DANYCH JEST JUZ ZAMKNIETE
+C: index.php jest kontrolerem, dla kazdego portletu: najpierw laczy sie z baza danych, wykonuje akcję (w tym domyslną) zamyka polaczenie i wstawia portlet
+
+czyli bedzie tyle transakcji do bazy ile jest portletow? TAK
+
+
+czyli schemat index.php jest taki:
+
+ - polacz sie z baza danych
+ - wykonaj akcje wszystkich portletow, jesli nie bylo klikniete, to domyslna i pobierz model. Kazda akcja w osobnej transakcji.
+ - rozlacz sie z baza danych
+ - wywolaj view wszystkich portletow
+
+ ALE jak to powyższe ma się do AJX, JSON etc?
+
+Dla jednego zwykłego portletu:
+
+  - POŁĄCZENIE Z BAZĄ
+  - START TRANSAKCJI
+  - WYWOŁANIE AKCJI  $pob->akcja() /* przez session */
+  - COMMIT/ROLLBACK
+  - ROZŁĄCZENIE Z BAZĄ
+  - WYŚWIETLENIE TREŚCI content.php
+
+Dla kilku zwykłych portletów:
+
+  - POŁĄCZENIE Z BAZĄ
+  - DLA KAŻDEGO PORTLETU:
+  - - START TRANSAKCJI
+  - - WYWOŁANIE AKCJI $pob->akcja() /* przez session */
+  - - COMMIT/ROLLBACK
+  - ROZŁĄCZENIE Z BAZĄ
+  - DLA KAŻDEGO PORTLETU:
+  - - WYŚWIETLENIE TREŚCI content.php
+
+Dla jednego portletu AJAX:
+
+  - POŁĄCZENIE Z BAZĄ
+  - START TRANSAKCJI
+  - WYWOŁANIE AKCJI $pob->akcja() /* przez session */
+  - COMMIT/ROLLBACK
+  - ROZŁĄCZENIE Z BAZĄ
+  - WYŚWIETLENIE TREŚCI content.php
+  - EXIT
